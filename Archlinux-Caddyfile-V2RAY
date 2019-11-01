@@ -1,0 +1,9 @@
+www.your-domain.com, your-domain.com {
+      root /srv/http/yoursite
+      tls your_email
+      
+      proxy / localhost:v2ray_port_number_you_specified_on_v2rayconfig {
+        websocket
+        header_upstream -Origin
+      }
+}
