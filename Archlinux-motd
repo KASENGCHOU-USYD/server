@@ -1,0 +1,20 @@
+#1.create sh file for generate motd with root user
+su root
+vim /usr/bin/scripts/motd.sh
+
+#2. motd.sh
+#!/bin/bash
+echo ""
+echo "Welcome to ${HOSTNAME}, ${PAM_USER}"
+echo "Kernel:     $(uname -r)"
+echo "Uptime:     $(uptime -p)"
+echo "Iptables:   $(systemctl is-active iptables)"
+echo "Ip6tables:  $(systemctl is-active ip6tables)"
+echo "Disk Use:  $(df --output=pcent / | sed 1d)"
+echo "WAN:	$(curl -s http://ipinfo.io)"
+
+#3. add to ssh login action
+vim /etc/pam.d/system-login
+
+#4. add following line at the end
+session    optional   pam_exec.so          stdout /usr/bin/scripts/motd.sh
