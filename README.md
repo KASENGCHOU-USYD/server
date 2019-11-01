@@ -9,7 +9,9 @@ shadowsocks: /etc/shadowsocks/xxx.json
 ---
 
 caddy: /etc/caddy/
+
 v2ray: /etc/v2ray/
+
 caddy cert default for http: /srv/http/.caddy/
 
 ---
