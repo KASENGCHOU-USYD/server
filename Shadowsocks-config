@@ -1,0 +1,9 @@
+{
+    "server":"YourServerLocalhost",
+    "server_port":YourServerPort,
+    "password":"YourPasswordForClient",
+    "timeout":3600,
+    "method":"chacha20-ietf-poly1305",
+    "fast_open": true,
+    "workers": 2
+}
